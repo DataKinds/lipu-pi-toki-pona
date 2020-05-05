@@ -38,15 +38,17 @@ class Word:
 
     def get_factor(self, other):
         # The words need to start with the same letters and length differ by at most 20%
-        if self.word[0] != other[0]:
+        here, *_ = self.word.split("_")
+
+        if here[0] != other[0]:
             return 0
-        len_ratio = len(self.word) / len(other)
+        len_ratio = len(here) / len(other)
         len_ratio = max(len_ratio, 1 / len_ratio)
 
         if len_ratio > 1.7:
             return 0
 
-        lcs_ratio = longest_common_subsequence(self.word, other) / max(len(self.word), len(other))
+        lcs_ratio = longest_common_subsequence(here, other) / max(len(here), len(other))
 
         return lcs_ratio ** 20
 
