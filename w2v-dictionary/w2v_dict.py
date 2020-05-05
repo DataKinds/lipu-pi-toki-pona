@@ -3,7 +3,7 @@ import math
 import w2v_loader
 import numpy as np
 
-WORD_LIMIT = 250000
+WORD_LIMIT = 25000
 
 
 def longest_common_subsequence(w1, w2):
@@ -36,9 +36,12 @@ class Word:
     def __str__(self):
         return f"Word({repr(self.word)})"
 
+    def get_subword(self):
+        return self.word.split("_")[0]
+
     def get_factor(self, other):
         # The words need to start with the same letters and length differ by at most 20%
-        here, *_ = self.word.split("_")
+        here = self.get_subword()
 
         if here[0] != other[0]:
             return 0
@@ -101,7 +104,7 @@ def get_string_vector(words, string):
 
     total_fac = sum(facs.values())
 
-    for word in sorted(facs.keys(), key=lambda word: facs[word], reverse=True)[:20]:
+    for word in sorted(facs.keys(), key=lambda word: facs[word], reverse=True)[:10]:
         print(f"{word}: {facs[word] / total_fac:.5} ({facs[word]:.5})")
 
     vector_total = np.zeros(DIMS)
@@ -112,13 +115,31 @@ def get_string_vector(words, string):
 
     return vector_avg
 
+
 if __name__ == "__main__":
     words, DIMS = load_words()
+
+    tp_words = []
+    for cont in tqdm(open("nimi-ale-pona.txt", "r").read().split("\n\n")):
+        if "–" not in cont:
+            continue
+        word, desc = cont.split("–")
+        word = word.strip()
+        desc = desc.strip()
+        desc_words = "".join([ch if ch.isalnum() else " " for ch in desc]).split()
+        desc_words = [word for word in desc_words if word.strip() != ""]
+
+        matching_words = [word for word in words if word.get_subword() in desc_words]
+        if len(matching_words) > 0:
+            total_vec = sum(word.vector for word in matching_words)
+            avg_vec = total_vec / len(matching_words)
+
+            tp_words.append(Word(word, avg_vec))
 
     while True:
         string = input("> ").strip()
         vec = get_string_vector(words, string)
 
-        angles = [(word, word.angle_to(vec)) for word in words]
-        for (word, angle) in sorted(angles, key=lambda pair: pair[1])[:20]:
+        angles = [(word, word.angle_to(vec)) for word in tp_words]
+        for (word, angle) in sorted(angles, key=lambda pair: pair[1])[:10]:
             print(f"{word.word}: {math.degrees(angle)}°")
