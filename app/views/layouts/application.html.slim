@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+html
+  head
+    title lipu pi toki pona
+    == csrf_meta_tags
+    == csp_meta_tag
+
+    == stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    == javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    .header
+    .row.row-justify-center
+      .col
+        == image_tag 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Toki_pona.svg'
+        == yield
