@@ -1,7 +1,10 @@
 from tqdm import tqdm
 import math
+import w2v_loader
+import numpy as np
 
-EPSILON = 0.01
+WORD_LIMIT = 250000
+
 
 def longest_common_subsequence(w1, w2):
     w1, w2 = max(w1, w2), min(w1, w2)
@@ -28,7 +31,7 @@ def longest_common_subsequence(w1, w2):
 class Word:
     def __init__(self, word, vector):
         self.word = word
-        self.vector = vector
+        self.vector = np.array(vector)
 
     def __str__(self):
         return f"Word({repr(self.word)})"
@@ -47,19 +50,68 @@ class Word:
 
         return lcs_ratio ** 20
 
-given = "dictionaries"
-words = open("/usr/share/dict/words").read().strip().split("\n")
+    def angle_to(self, other_vector):
+        # a * b = ||a|| ||b|| cos(alpha)
+        # la
+        # alpha = cos⁻¹(a * b / (||a|| ||b||))
+
+        dot = self.vector.dot(other_vector)
+        self_len_sqr = self.vector.dot(self.vector)
+        other_len_sqr = other_vector.dot(other_vector)
+
+        cosine = dot / ((self_len_sqr * other_len_sqr) ** 0.5)
+        cosine = min(1, cosine)
+        return math.acos(cosine)
+
+def load_words():
+    print("Loading words")
+    words = []
+
+    lines = w2v_loader.get_or_load_model(mode="r").readlines()
+    DIMS = int(lines[0].split()[1])
+
+    for line in tqdm(lines[1:]):
+        line = line.strip()
+        if line == "":
+            continue
+
+        if len(words) > WORD_LIMIT:
+            break
+
+        word, *vector = line.split()
+
+        if DIMS != len(vector):
+            print(f"Expected {DIMS} dims, got {line}")
+            exit()
+
+        wword = Word(word, [float(v) for v in vector])
+        words.append(wword)
+
+    return words, DIMS
+
+words, DIMS = load_words()
+
+given = "wobsite"
 
 facs = {}
-
 for word in tqdm(words):
-    wword = Word(word, None)
-
-    fac = wword.get_factor(given)
+    fac = word.get_factor(given)
     if fac != 0:
         facs[word] = fac
 
 total_fac = sum(facs.values())
 
 for word in sorted(facs.keys(), key=lambda word: facs[word], reverse=True)[:20]:
-    print(f"{word}: {facs[word] / total_fac} ({facs[word]})")
+    print(f"{word}: {facs[word] / total_fac:.5} ({facs[word]:.5})")
+
+vector_total = np.zeros(DIMS)
+for word, fac in facs.items():
+    vector_total += np.array(word.vector) * fac
+
+vector_avg = vector_total / total_fac
+
+print("Calculated average vector")
+
+angles = [(word, word.angle_to(vector_avg)) for word in words]
+for (word, angle) in sorted(angles, key=lambda pair: pair[1])[:20]:
+    print(f"{word.word}: {math.degrees(angle)}°")
