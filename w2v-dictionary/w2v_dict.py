@@ -91,29 +91,34 @@ def load_words():
 
     return words, DIMS
 
-words, DIMS = load_words()
+def get_string_vector(words, string):
 
-given = "wobsite"
+    facs = {}
+    for word in tqdm(words):
+        fac = word.get_factor(string)
+        if fac != 0:
+            facs[word] = fac
 
-facs = {}
-for word in tqdm(words):
-    fac = word.get_factor(given)
-    if fac != 0:
-        facs[word] = fac
+    total_fac = sum(facs.values())
 
-total_fac = sum(facs.values())
+    for word in sorted(facs.keys(), key=lambda word: facs[word], reverse=True)[:20]:
+        print(f"{word}: {facs[word] / total_fac:.5} ({facs[word]:.5})")
 
-for word in sorted(facs.keys(), key=lambda word: facs[word], reverse=True)[:20]:
-    print(f"{word}: {facs[word] / total_fac:.5} ({facs[word]:.5})")
+    vector_total = np.zeros(DIMS)
+    for word, fac in facs.items():
+        vector_total += np.array(word.vector) * fac
 
-vector_total = np.zeros(DIMS)
-for word, fac in facs.items():
-    vector_total += np.array(word.vector) * fac
+    vector_avg = vector_total / total_fac
 
-vector_avg = vector_total / total_fac
+    return vector_avg
 
-print("Calculated average vector")
+if __name__ == "__main__":
+    words, DIMS = load_words()
 
-angles = [(word, word.angle_to(vector_avg)) for word in words]
-for (word, angle) in sorted(angles, key=lambda pair: pair[1])[:20]:
-    print(f"{word.word}: {math.degrees(angle)}°")
+    while True:
+        string = input("> ").strip()
+        vec = get_string_vector(words, string)
+
+        angles = [(word, word.angle_to(vec)) for word in words]
+        for (word, angle) in sorted(angles, key=lambda pair: pair[1])[:20]:
+            print(f"{word.word}: {math.degrees(angle)}°")
