@@ -2,6 +2,7 @@ from tqdm import tqdm
 import math
 import w2v_loader
 import numpy as np
+from collections import defaultdict
 
 WORD_LIMIT = 250000
 
@@ -37,10 +38,10 @@ class Word:
         return f"Word({repr(self.word)})"
 
     def get_subword(self):
-        return self.word.split("_")[0]
+        return self.word.split("_")[0].lower()
 
     def get_ext(self):
-        return "_".join(self.word.split("_")[1:])
+        return "_".join(self.word.split("_")[1:]).lower()
 
     def get_factor(self, other):
         # The words need to start with the same letters and length differ by at most 20%
@@ -51,7 +52,7 @@ class Word:
         len_ratio = len(here) / len(other)
         len_ratio = max(len_ratio, 1 / len_ratio)
 
-        if len_ratio > 1.7:
+        if len_ratio > 1.3:
             return 0
 
         lcs_ratio = longest_common_subsequence(here, other) / max(len(here), len(other))
@@ -133,27 +134,42 @@ def get_string_vector(words, string, verbose=False):
 
     return vector_avg
 
-def load_tp_words(words):
+def load_tp_words(words, verbose=True):
+    word_hash_lookup = defaultdict(list)
+    for word in words:
+        word_hash_lookup[word.get_subword()].append(word)
+
     tp_words = []
-    for cont in tqdm(open("nimi-ale-pona.txt", "r").read().split("\n\n")):
+    tp_lines = open("nimi-ale-pona.txt", "r").read().split("\n\n")
+
+    if verbose:
+        tp_lines = tqdm(tp_lines)
+
+    word_bags = defaultdict(list)
+
+
+    for cont in tp_lines:
         if "\t" not in cont:
             continue
-        word, descs = cont.split("\t")
+
+        word, *descs = cont.split("\t")
+        descs = "\t".join(descs)
         word = word.strip()
         for line in descs.split("\n"):
             line = line.strip()
-            word_type, *sim = line.split("   ")
+            word_type, *sim = line.split("\t") if "\t" in line else line.split("   ")
             sim = " ".join(sim)
             sim_words = "".join([ch if ch.isalnum() else " " for ch in sim]).split()
             sim_words = [word for word in sim_words if word.strip() != ""]
+            word_bags[word + "_" + word_type].extend(sim_words)
 
-            vectors = [get_string_vector(words, word) for word in sim_words]
-            vectors = [v for v in vectors if v is not None]
+    for tp_full_word, bag in word_bags.items():
+        vectors = [word.vector for sim_word in bag for word in word_hash_lookup[sim_word]]
 
-            if len(vectors) > 0:
-                avg_vec = sum(vectors) / len(vectors)
+        if len(vectors) > 0:
+            avg_vec = sum(vectors) / len(vectors)
 
-                tp_words.append(Word(word + "_" + word_type, avg_vec))
+            tp_words.append(Word(tp_full_word, avg_vec))
 
     return tp_words
 
