@@ -1,3 +1,500 @@
+a	
+    INTERJ	ah, ha, uh, oh, ooh, aw, well (emotion word)
+
+akesi	
+    NOUN	non-cute animal, reptile, amphibian
+
+ala	
+    MOD	no, not, none, un-
+    NOUN	nothing, negation, zero
+    INTERJ	no!
+
+ale	
+    NOUN	everything, anything, life, the universe
+    MOD	all, every, complete, whole
+
+anpa	
+    NOUN	bottom, lower part, under, below, floor, beneath
+    MOD	low, lower, bottom, down
+
+ante	
+    NOUN	difference
+    MOD	different
+    CONJ	otherwise, or else
+    VERB	change, alter, modify
+
+anu	
+    CONJ	or
+
+awen	
+    VERB	stay, wait, remain
+    VERB	keep
+    MOD	remaining, stationary, permanent, sedentary
+
+e	
+    PARTICLE	(introduces a direct object)
+
+en	
+    CONJ	and (used to coordinate head nouns)
+
+esun	
+    NOUN	market, shop
+
+ijo	
+    NOUN	thing, something, stuff, anything, object
+    MOD	of something
+    VERB	objectify
+
+ike	
+    MOD	bad, negative, wrong, evil, overly complex, (figuratively) unhealthy
+    INTERJ	oh dear! woe! alas!
+    NOUN	negativity, badness, evil
+    VERB	to make bad, to worsen, to have a negative effect upon
+    VERB	to be bad, to suck
+
+ilo	
+    NOUN	tool, device, machine, thing used for a specific purpose
+
+insa	
+    NOUN	inside, inner world, centre, stomach
+    MOD	inner, internal
+
+jaki	
+    MOD	dirty, gross, filthy
+    NOUN	dirt, pollution, garbage, filth
+    VERB	pollute, dirty
+    INTERJ	ew! yuck!
+
+jan	
+    NOUN	person, people, human, being, somebody, anybody
+    MOD	human, somebody's, personal, of people
+    VERB	personify, humanize, personalize
+
+jelo	
+    MOD	yellow, light green
+
+jo	
+    VERB	have, contain
+    NOUN	having
+    kama	receive, get, take, obtain
+
+kala	
+    NOUN	fish, sea creature
+
+kalama	
+    NOUN	sound, noise, voice
+    VERB	make noise
+    VERB	sound, ring, play (an instrument)
+
+kama	
+    VERB	come, become, arrive, happen, pursue actions to arrive to (a certain state), manage to, start to
+    NOUN	event, happening, chance, arrival, beginning
+    MOD	coming, future
+    VERB	bring about, summon
+
+kasi	
+    NOUN	plant, leaf, herb, tree, wood
+
+ken	
+    VERB	can, is able to, is allowed to, may, is possible
+    NOUN	possibility, ability, power to do things, permission
+    VERB	make possible, enable, allow, permit
+    cont	it is possible that
+
+kepeken	
+    VERB	use
+    prep	with
+
+kili	
+    NOUN	fruit, pulpy vegetable, mushroom
+
+kin	
+    MOD	also, too, even, indeed (emphasizes the word(s) before it)
+
+kipisi	
+
+kiwen	
+    MOD	hard, solid, stone-like, made of stone or metal
+    NOUN	hard thing, rock, stone, metal, mineral, clay
+
+ko	
+    NOUN	semi-solid or squishy substance, e.g. paste, powder, gum
+
+kon	
+    NOUN	air, wind, smell, soul
+    MOD	air-like, ethereal, gaseous
+
+kule	
+    NOUN	colour, paint
+    MOD	colourful
+    VERB	colour, paint
+
+kute	
+    VERB	listen, hear
+    MOD	auditory, hearing
+
+kulupu	
+    NOUN	group, community, society, company, people
+    MOD	communal, shared, public, of the society
+
+la	
+    PARTICLE	(between adverb or phrase of context and sentence)
+
+lape	
+    n, vi	sleep, rest
+    MOD	sleeping, of sleep
+
+laso	
+    MOD	blue, blue-green
+
+lawa	
+    NOUN	head, mind
+    MOD	main, leading, in charge
+    VERB	lead, control, rule, steer
+
+len	
+    NOUN	clothing, cloth, fabric
+
+lete	
+    NOUN	cold
+    MOD	cold, uncooked
+    VERB	cool down, chill
+
+li	
+    PARTICLE	"(between any subject except mi and sina and its verb; also used to introduce a new verb for the same subject)"
+
+lili	
+    MOD	small, little, young, a bit, short, few, less
+    VERB	reduce, shorten, shrink, lessen
+
+linja	
+    NOUN	long, very thin, floppy thing, e.g. string, rope, hair, thread, cord, chain
+
+lipu	
+    NOUN	flat and bendable thing, e.g. paper, card, ticket
+
+loje	
+    MOD	red
+
+lon	
+    prep	be (located) in/at/on
+    VERB	be there, be present, be real/true, exist, be awake
+
+luka	
+    NOUN	hand, arm
+
+lukin	
+    VERB	see, look at, watch, read
+    VERB	look, watch out, pay attention
+    MOD	visual(ly)
+
+lupa	
+    NOUN	hole, orifice, window, door
+
+ma	
+    NOUN	land, earth, country, (outdoor) area
+
+mama	
+    NOUN	parent, mother, father
+    MOD	of the parent, parental, maternal, fatherly
+
+mani	
+    NOUN	money, material wealth, currency, dollar, capital
+
+meli	
+    NOUN	woman, female, girl, wife, girlfriend
+    MOD	female, feminine, womanly
+
+mi	
+    NOUN	I, we
+    MOD	my, our
+
+mije	
+    NOUN	man, male, boy, husband, boyfriend
+    MOD	male, masculine, manly
+
+moku	
+    NOUN	food, meal
+    VERB	eat, drink, swallow, ingest, consume
+
+moli	
+    NOUN	death
+    VERB	die, be dead
+    VERB	kill
+    MOD	dead, deadly, fatal
+
+monsi	
+    NOUN	back, rear end, butt, behind
+    MOD	back, rear
+
+mu	
+    INTERJ	woof! meow! moo! etc. (cute animal noise)
+
+mun	
+    NOUN	moon
+    MOD	lunar
+
+musi	
+    NOUN	fun, playing, game, recreation, art, entertainment
+    MOD	artful, fun, recreational
+    VERB	play, have fun
+    VERB	amuse, entertain
+
+mute	
+    MOD	many, very, much, several, a lot, abundant, numerous, more
+    NOUN	amount, quantity
+    VERB	make many or much
+
+nanpa	
+    NOUN	number
+    oth	-th (ordinal numbers)
+
+nasa	
+    MOD	silly, crazy, foolish, drunk, strange, stupid, weird
+    VERB	drive crazy, make weird
+
+nasin	
+    NOUN	way, manner, custom, road, path, doctrine, system, method
+
+nena	
+    NOUN	bump, nose, hill, mountain, button
+
+ni	
+    MOD	this, that
+
+nimi	
+    NOUN	word, name
+
+noka	
+    NOUN	leg, foot
+
+o	
+    PARTICLE	O (vocative or imperative)
+    INTERJ	hey! (calling somebody's attention)
+
+oko	
+    NOUN	eye
+
+olin	
+    NOUN	love
+    MOD	love
+    VERB	to love (a person)
+
+ona	
+    NOUN	she, he, it, they
+    MOD	her, his, its, their
+
+open	
+    VERB	open, turn on
+
+pakala	
+    NOUN	blunder, accident, mistake, destruction, damage, breaking
+    VERB	screw up, fuck up, botch, ruin, break, hurt, injure, damage, spoil, ruin
+    VERB	screw up, fall apart, break
+    INTERJ	damn! fuck!
+
+pali	
+    NOUN	activity, work, deed, project
+    MOD	active, work-related, operating, working
+    VERB	do, make, build, create
+    VERB	act, work, function
+
+palisa	
+    NOUN	long, mostly hard object, e.g. rod, stick, branch
+
+pan	
+    NOUN	grain, cereal
+
+pana	
+    VERB	give, put, send, place, release, emit, cause
+    NOUN	giving, transfer, exchange
+
+pata	
+
+pi	
+    PARTICLE	of, belonging to
+
+pilin	
+    NOUN	feelings, emotion, heart
+    VERB	feel
+    VERB	feel, think, sense, touch
+
+pimeja	
+    MOD	black, dark
+    NOUN	darkness, shadows
+    VERB	darken
+
+pini	
+    NOUN	end, tip
+    MOD	completed, finished, past, done, ago
+    VERB	finish, close, end, turn off
+
+pipi	
+    NOUN	bug, insect, spider
+
+poka	
+    NOUN	side, hip, next to
+    prep	in the accompaniment of, with
+    MOD	neighbouring
+
+poki	
+    NOUN	container, box, bowl, cup, glass
+
+pona	
+    NOUN	good, simplicity, positivity
+    MOD	good, simple, positive, nice, correct, right
+    INTERJ	great! good! thanks! OK! cool! yay!
+    VERB	improve, fix, repair, make good
+
+sama	
+    MOD	same, similar, equal, of equal status or position
+    prep	like, as, seem
+
+seli	
+    NOUN	fire, warmth, heat
+    MOD	hot, warm, cooked
+    VERB	heat, warm up, cook
+
+selo	
+    NOUN	outside, surface, skin, shell, bark, shape, peel
+
+seme	
+    oth	what, which, wh- (question word)
+
+sewi	
+    NOUN	high, up, above, top, over, on
+    MOD	superior, elevated, religious, formal
+
+sijelo	
+    NOUN	body, physical state
+
+sike	
+    NOUN	circle, wheel, sphere, ball, cycle
+    MOD	round, cyclical
+
+sin	
+    MOD	new, fresh, another, more
+    VERB	renew, renovate, freshen
+
+sina	
+    NOUN	you
+    MOD	your
+
+sinpin	
+    NOUN	front, chest, torso, face, wall
+
+sitelen	
+    NOUN	picture, image
+    VERB	draw, write
+
+sona	
+    NOUN	knowledge, wisdom, intelligence, understanding
+    VERB	know, understand, know how to
+    VERB	know, understand
+
+soweli	
+    NOUN	animal, especially land mammal, lovable animal
+
+suli	
+    MOD	big, tall, long, adult, important
+    VERB	enlarge, lengthen
+    NOUN	size
+
+suno	
+    NOUN	sun, light
+
+supa	
+    NOUN	horizontal surface, e.g furniture, table, chair, pillow, floor
+
+suwi	
+    NOUN	candy, sweet food
+    MOD	sweet, cute
+    VERB	sweeten
+
+tan	
+    prep	from, by, because of, since
+    NOUN	origin, cause
+
+taso	
+    MOD	only, sole
+    CONJ	but
+
+tawa	
+    prep	to, in order to, towards, for, until
+    VERB	go to, walk, travel, move, leave
+    NOUN	movement, transportation
+    MOD	moving, mobile
+    VERB	move, displace
+
+telo	
+    NOUN	water, liquid, juice, sauce
+    VERB	water, wash with water
+
+tenpo	
+    NOUN	time, period of time, moment, duration, situation
+
+toki	
+    NOUN	language, talking, speech, communication
+    MOD	talking, verbal
+    VERB	say
+    VERB	talk, chat, communicate
+    INTERJ	hello! hi!
+
+tomo	
+    NOUN	indoor constructed space, e.g. house, home, room, building
+    MOD	urban, domestic, household
+
+tu	
+    MOD	two
+    NOUN	duo, pair
+    VERB	double, separate/cut/divide in two
+
+unpa	
+    NOUN	sex, sexuality
+    MOD	erotic, sexual
+    VERB	have sex with, sleep with, fuck
+    VERBy	have sex
+
+uta	
+    NOUN	mouth
+    MOD	oral
+
+    mouth	    the part of the human body that includes the lips and everything inside the mouth and throat; mouth, oral cavity, throat, pharynx, lips
+
+utala	
+    NOUN	conflict, disharmony, competition, fight, war, battle, attack, blow, argument, physical or verbal violence
+    VERB	hit, strike, attack, compete against
+
+walo	
+    MOD	white, light (colour)
+    NOUN	white thing or part, whiteness, lightness
+
+wan	
+    MOD	one, a
+    NOUN	unit, element, particle, part, piece
+    VERB	unite, make one
+
+waso	
+    NOUN	bird, winged animal
+
+wawa	
+    NOUN	energy, strength, power
+    MOD	energetic, strong, fierce, intense, sure, confident
+    VERB	strengthen, energize, empower
+
+
+        fast	        loud
+
+weka	
+    MOD	away, absent, missing
+    NOUN	absence
+    VERB	throw away, remove, get rid of
+
+wile	
+    VERB	to want, need, wish, have to, must, will, should
+    NOUN	desire, need, will
+    MOD	necessary
+
 
 a 	PARTICLE   (emphasis, emotion or confirmation)
 
@@ -58,7 +555,7 @@ kasi 	NOUN   plant, vegetation; herb, leaf
 ken 	PRE-VERB   to be able to, be allowed to, can, may
 ADJECTIVE   possible
 
-kepeken 	PREPOSITION   to use, with, by means of
+kepeken 	MOD   to use, with, by means of
 
 kili 	NOUN   fruit, vegetable, mushroom
 
@@ -98,7 +595,7 @@ lipu 	NOUN   flat object; book, document, card, paper, record, website
 
 loje 	ADJECTIVE   red, reddish
 
-lon 	PREPOSITION   located at, present at, real, true, existing
+lon 	MOD   located at, present at, real, true, existing
 
 luka 	NOUN   arm, hand, tactile organ
 NUMBER   five
@@ -193,7 +690,7 @@ pona 	ADJECTIVE   good, positive, useful; friendly, peaceful; simple
 pu 	ADJECTIVE   interacting with the official Toki Pona book
 
 sama 	ADJECTIVE   same, similar; each other; sibling, peer, fellow
-PREPOSITION   as, like
+MOD   as, like
 
 seli 	ADJECTIVE   fire; cooking element, chemical reaction, heat source
 
@@ -232,12 +729,12 @@ supa 	NOUN   horizontal surface, thing to put or rest something on
 
 suwi 	ADJECTIVE   sweet, fragrant; cute, innocent, adorable
 
-tan 	PREPOSITION   by, from, because of
+tan 	MOD   by, from, because of
 
 taso 	PARTICLE   but, however
 ADJECTIVE   only
 
-tawa 	PREPOSITION   going to, toward; for; from the perspective of
+tawa 	MOD   going to, toward; for; from the perspective of
 ADJECTIVE   moving
 
 telo 	NOUN   water, liquid, fluid, wet substance; beverage
