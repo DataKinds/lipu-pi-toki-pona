@@ -22,4 +22,4 @@ def dict(string):
     return json.dumps([{"word": word.get_subword(), "ext": word.get_ext(), "angle": angle} for word, angle in goods])
 
 if __name__ == '__main__':
-    api.run()
+    api.run(port=58008)
