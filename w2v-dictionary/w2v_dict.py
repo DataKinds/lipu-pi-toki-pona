@@ -3,7 +3,7 @@ import math
 import w2v_loader
 import numpy as np
 
-WORD_LIMIT = 25000
+WORD_LIMIT = 250000
 
 
 def longest_common_subsequence(w1, w2):
@@ -84,6 +84,8 @@ def load_words():
             break
 
         word, *vector = line.split()
+        if not "_NOUN" in word and not "_ADJ" in word and not "_VERB" in word:
+            continue
 
         if DIMS != len(vector):
             print(f"Expected {DIMS} dims, got {line}")
@@ -94,18 +96,24 @@ def load_words():
 
     return words, DIMS
 
-def get_string_vector(words, string):
+def get_string_vector(words, string, verbose=False):
+    if verbose:
+        words = tqdm(words)
 
     facs = {}
-    for word in tqdm(words):
+    for word in words:
         fac = word.get_factor(string)
         if fac != 0:
             facs[word] = fac
 
+    if len(facs) == 0:
+        return None
+
     total_fac = sum(facs.values())
 
-    for word in sorted(facs.keys(), key=lambda word: facs[word], reverse=True)[:10]:
-        print(f"{word}: {facs[word] / total_fac:.5} ({facs[word]:.5})")
+    if verbose:
+        for word in sorted(facs.keys(), key=lambda word: facs[word], reverse=True)[:10]:
+            print(f"{word}: {facs[word] / total_fac:.5} ({facs[word]:.5})")
 
     vector_total = np.zeros(DIMS)
     for word, fac in facs.items():
@@ -121,25 +129,33 @@ if __name__ == "__main__":
 
     tp_words = []
     for cont in tqdm(open("nimi-ale-pona.txt", "r").read().split("\n\n")):
-        if "–" not in cont:
+        if "\t" not in cont:
             continue
-        word, desc = cont.split("–")
+        word, descs = cont.split("\t")
         word = word.strip()
-        desc = desc.strip()
-        desc_words = "".join([ch if ch.isalnum() else " " for ch in desc]).split()
-        desc_words = [word for word in desc_words if word.strip() != ""]
+        for line in descs.split("\n"):
+            line = line.strip()
+            word_type, *sim = line.split("   ")
+            sim = " ".join(sim)
+            sim_words = "".join([ch if ch.isalnum() else " " for ch in sim]).split()
+            sim_words = [word for word in sim_words if word.strip() != ""]
 
-        matching_words = [word for word in words if word.get_subword() in desc_words]
-        if len(matching_words) > 0:
-            total_vec = sum(word.vector for word in matching_words)
-            avg_vec = total_vec / len(matching_words)
+            vectors = [get_string_vector(words, word) for word in sim_words]
+            vectors = [v for v in vectors if v is not None]
 
-            tp_words.append(Word(word, avg_vec))
+            if len(vectors) > 0:
+                avg_vec = sum(vectors) / len(vectors)
+
+                tp_words.append(Word(word + "_" + word_type, avg_vec))
 
     while True:
         string = input("> ").strip()
-        vec = get_string_vector(words, string)
+        vec = get_string_vector(words, string, verbose=True)
+
+        if vec is None:
+            print("Word not found!")
+            continue
 
         angles = [(word, word.angle_to(vec)) for word in tp_words]
         for (word, angle) in sorted(angles, key=lambda pair: pair[1])[:10]:
-            print(f"{word.word}: {math.degrees(angle)}°")
+            print(f"{word.word}: {math.degrees(angle):.5}°")
