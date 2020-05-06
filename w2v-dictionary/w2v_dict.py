@@ -115,18 +115,18 @@ def get_string_vector(words, string, verbose=False):
         for word in sorted(facs.keys(), key=lambda word: facs[word], reverse=True)[:10]:
             print(f"{word}: {facs[word] / total_fac:.5} ({facs[word]:.5})")
 
-    vector_total = np.zeros(DIMS)
+    vector_total = None
+
     for word, fac in facs.items():
+        if vector_total is None:
+            vector_total = np.zeros_like(word.vector)
         vector_total += np.array(word.vector) * fac
 
     vector_avg = vector_total / total_fac
 
     return vector_avg
 
-
-if __name__ == "__main__":
-    words, DIMS = load_words()
-
+def load_tp_words(words):
     tp_words = []
     for cont in tqdm(open("nimi-ale-pona.txt", "r").read().split("\n\n")):
         if "\t" not in cont:
@@ -147,6 +147,13 @@ if __name__ == "__main__":
                 avg_vec = sum(vectors) / len(vectors)
 
                 tp_words.append(Word(word + "_" + word_type, avg_vec))
+
+    return tp_words
+
+if __name__ == "__main__":
+    words, DIMS = load_words()
+
+    tp_words = load_tp_words(words)
 
     while True:
         string = input("> ").strip()
