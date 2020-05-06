@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from flask import Flask, Response
 import json
 from w2v_dict import load_words, load_tp_words, get_string_vector
