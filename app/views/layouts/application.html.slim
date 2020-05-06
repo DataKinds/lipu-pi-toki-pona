@@ -9,9 +9,5 @@ html
     == javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    .header
-      = image_tag 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Toki_pona.svg', size: 30
-      
-      .header-nav
-        | lipu pi toki pona!
+    == render 'layouts/header'
     == yield

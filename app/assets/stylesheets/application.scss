@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require colorscheme
  *= require_tree .
  *= require_self
  */
@@ -24,27 +25,12 @@ body {
     margin: 0;
     padding: 0;
 }
-.header {
-    display: block;
-    width: 100%;
-    margin: 0;
-    border-bottom: 1px;
-    border-color: darkslategray;
-    background: linear-gradient(#eeeeee, #cccccc);
-    box-shadow: 0px 0px 10px black;
-    padding: 10px 30px;
-}
-.header-nav {
-    display: inline-block;
-    position: relative;
-    top: 50%;
-    transform: perspective(1px) translateY(-50%);
-}
 main {
     padding: 30px;
     margin: 0 auto;
     min-width: 60em;
     width: 70%;
+    text-align: justify;
 }
 
 .align-center {
@@ -70,4 +56,5 @@ main {
 
 .col {
     display: block;
+    flex: initial;
 }
