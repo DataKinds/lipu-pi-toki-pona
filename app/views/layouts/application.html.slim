@@ -10,7 +10,8 @@ html
 
   body
     .header
-    .row.row-justify-center
-      .col
-        == image_tag 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Toki_pona.svg'
-        == yield
+      = image_tag 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Toki_pona.svg', size: 30
+      
+      .header-nav
+        | lipu pi toki pona!
+    == yield
