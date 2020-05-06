@@ -75,27 +75,31 @@ def load_words():
     print("Loading words")
     words = []
 
-    lines = w2v_loader.get_or_load_model(mode="r").readlines()
-    DIMS = int(lines[0].split()[1])
+    f = w2v_loader.get_or_load_model(mode="r")
 
-    for line in tqdm(lines[1:]):
-        line = line.strip()
-        if line == "":
-            continue
+    DIMS = int(next(f).split()[1])
 
-        if len(words) > WORD_LIMIT:
-            break
+    with tqdm(total=WORD_LIMIT, unit="line", unit_scale=True) as prog:
+        for line in f:
+            line = line.strip()
+            if line == "":
+                continue
 
-        word, *vector = line.split()
-        if not "_NOUN" in word and not "_ADJ" in word and not "_VERB" in word:
-            continue
+            prog.update(1)
 
-        if DIMS != len(vector):
-            print(f"Expected {DIMS} dims, got {line}")
-            exit()
+            if len(words) > WORD_LIMIT:
+                break
 
-        wword = Word(word, [float(v) for v in vector])
-        words.append(wword)
+            word, *vector = line.split()
+            if not "_NOUN" in word and not "_ADJ" in word and not "_VERB" in word:
+                continue
+
+            if DIMS != len(vector):
+                print(f"Expected {DIMS} dims, got {line}")
+                exit()
+
+            wword = Word(word, [float(v) for v in vector])
+            words.append(wword)
 
     return words, DIMS
 
