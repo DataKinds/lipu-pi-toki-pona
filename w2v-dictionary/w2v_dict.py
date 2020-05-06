@@ -39,6 +39,9 @@ class Word:
     def get_subword(self):
         return self.word.split("_")[0]
 
+    def get_ext(self):
+        return "_".join(self.word.split("_")[1:])
+
     def get_factor(self, other):
         # The words need to start with the same letters and length differ by at most 20%
         here = self.get_subword()
