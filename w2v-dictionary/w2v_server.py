@@ -21,7 +21,7 @@ def dict(string):
 
     res = json.dumps([{"word": word.get_subword(), "ext": word.get_ext(), "angle": angle} for word, angle in goods])
 
-    return Response(res, mimetype='text/xml')
+    return Response(res, mimetype='application/json')
 
 if __name__ == '__main__':
     api.run(port=58008)
